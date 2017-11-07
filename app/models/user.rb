@@ -1,4 +1,4 @@
-require 'digest/sha2'
+
 class User < ActiveRecord::Base
     attr_reader :password
     validates :username, :password_digest, :session_token, presence: true
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     def self.find_by_credentials(username, password)
         user = User.find_by_username(username)
         return nil if user.nil?
-        BCrypt::Password.new(user.password_diget).is_password?(password) ? user : nil
+        BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
     end 
 
     def ensure_session_token
