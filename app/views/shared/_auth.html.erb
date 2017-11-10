@@ -1,0 +1,14 @@
+<% if current_user %>
+    <h2>Welcome: <%= " " + current_user.username %>
+    <form action="/session" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout!">
+        <input type="hidden" 
+            name="authenticity_token" 
+            value="<%= form_authenticity_token %>"
+        >
+    </form>
+<% else %>
+    <a href="/session/new">Sign In</a>
+    <a href="/users/new">Sign Up</a>
+<% end %>

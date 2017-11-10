@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save 
             log_in!(@user)
-            redirect_to user_url
+            redirect_to user_url(@user)
         else 
             render :new
         end 
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
             return 
         end 
         @user = current_user
+        #current_user.includes(:goals, :comments)
         render :show
     end 
 

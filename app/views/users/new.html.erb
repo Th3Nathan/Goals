@@ -6,7 +6,7 @@
     <% end %>
 </ul>
 
-<form action="/user" method="POST">
+<form action="/users" method="POST">
     <label for="user_username">Username</label>
     <input 
         type="text" 
@@ -18,6 +18,9 @@
     <label for="user_password">Password</label>
     <input type="password" name="user[password]" id="user_password">
     <br>
-
+    <input type="hidden" 
+           name="authenticity_token" 
+           value="<%= form_authenticity_token %>"
+    >
     <input type="submit" value="Create User!">
 </form>
