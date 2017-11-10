@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+
+    def index 
+        @users = User.all 
+        render :index
+    end 
+
     def new
         #present form for signup 
         @user = User.new 
@@ -17,12 +23,8 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        if current_user.nil?
-            #go to login if tries to show a user without user
-            redirect_to new_session_url
-            return 
-        end 
-        @user = current_user
+        @user = User.find(params[:id])
+        
         #current_user.includes(:goals, :comments)
         render :show
     end 

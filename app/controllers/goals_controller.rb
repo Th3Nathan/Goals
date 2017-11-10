@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         else 
             render :new
         end 
-    end 
+    end  
 
     def show 
         @goal = Goal.find(params[:id]).include(:comments)
