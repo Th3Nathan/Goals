@@ -11,8 +11,8 @@
 #  commentable_type :string
 #
 
-class Comment < ActiveRecord::Base
-    validates :user_id, :body, presence: true 
-    belongs_to :commentable, polymorphic: true 
+require 'rails_helper'
+
+RSpec.describe Comment, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
-    

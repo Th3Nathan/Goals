@@ -11,12 +11,8 @@
 #  user_id    :integer
 #
 
-class Goal < ActiveRecord::Base
-    validates :title, :finished, presence: true 
-    has_many :comments, as: :commentable
-    belongs_to :user
+require 'rails_helper'
 
-    def finished 
-        self.finished = false 
-    end 
+RSpec.describe Goal, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
